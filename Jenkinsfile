@@ -8,14 +8,23 @@ pipeline {
 		}
 		stage('Build') { 
 			tools {
-				JDK 'jdk8'
-				Maven 'apache-maven-3.5.4'
+				jdk 'JDk'
+				maven 'Maven'
 			}
 			steps {
 				powershell 'java -version'
 				powershell 'mvn -version'
 				powershell 'mvn clean package'
+				archiveArtifacts 'target/*.war'
 
+			}
+		}
+		stage('Deploy To Prod') {
+			input{
+				message "Do you want to proceed for production deployment?"
+			}
+			steps{
+				 sh 'echo "Deploy into Prod"'
 			}
 		}
 		stage('Deploy') {
