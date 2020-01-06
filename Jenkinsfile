@@ -40,4 +40,5 @@ pipeline {
                         Thanks
                         Richa''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'richanema93@gmail.com'
 	}
+	}
 }
