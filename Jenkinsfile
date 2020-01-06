@@ -34,11 +34,14 @@ pipeline {
 			}
 		}
 		stage('Email Notification') {
+			steps{
 			mail bcc: '', body: '''Hi,
                         Welcome to Jenkins email alert.
 
                         Thanks
                         Richa''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'richanema93@gmail.com'
+				
+			}
 	}
 	}
 }
